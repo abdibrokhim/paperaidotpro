@@ -1,0 +1,9 @@
+<svg width="30" height="60" viewBox="0 0 30 60" xmlns="http://www.w3.org/2000/svg">
+    {/* Paper Icon */}
+    <rect x="10" y="10" width="30" height="40" fill="#FFFFFF" stroke="#00BFFF" strokeWidth="2"/>
+    <polyline points="40,10 40,30 30,30" fill="none" stroke="#00BFFF" strokeWidth="2"/>
+
+    {/* AI Circuit Lines */}
+    <line x1="25" y1="35" x2="45" y2="55" stroke="#00BFFF" strokeWidth="2"/>
+    <circle cx="45" cy="55" r="3" fill="#00BFFF"/>
+  </svg>
