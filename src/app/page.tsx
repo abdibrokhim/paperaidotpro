@@ -24,11 +24,15 @@ export default function Home() {
       imageUrl: "/modes/add_new_paper.png",
     },
     {
-      title: "Leave Comments and Reply",
+      title: "Leave Comments",
       imageUrl: "/modes/leave_comments.png",
     },
     {
-      title: "Voice Assistant",
+      title: "... and Reply",
+      imageUrl: "/modes/reply.png",
+    },
+    {
+      title: "AI Voice Assistant",
       imageUrl: "/modes/ai_voice_assistant.png",
     },
     {
