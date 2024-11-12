@@ -4,6 +4,15 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react"
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+
+import { firebaseConfig } from './firebase.config';
+import Notification from './utils/notify';
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 
 export default function Home() {
 
@@ -150,6 +159,9 @@ export default function Home() {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideInterval = 2000; // 2 seconds
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState<{ message: string; type: 'error' | 'success' | 'info' } | null>(null);  // notification message
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -158,15 +170,69 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [currentSlide, slides.length]);
 
+  function isValidEmail(email: string): boolean {
+    if (!email) return false;
+
+    // Regular expression for basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  const handleGetUpdates = async () => {
+    console.log('Handle Get Updates');
+    if (!isValidEmail(email)) {
+      console.log('Invalid email');
+      setNotification({ message: 'Invalid email', type: 'error' });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const docRef = await addDoc(collection(db, 'subscribers'), {
+        email,
+        createdAt: Date.now(),
+      });
+
+      setEmail('');
+      setNotification({ message: 'You have waitlisted!', type: 'success' });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loader = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+    <circle cx={4} cy={12} r={3} fill="currentColor">
+        <animate id="svgSpinners3DotsScale0" attributeName="r" begin="0;svgSpinners3DotsScale1.end-0.25s" dur="0.75s" values="3;.2;3" />
+    </circle>
+    <circle cx={12} cy={12} r={3} fill="currentColor">
+        <animate attributeName="r" begin="svgSpinners3DotsScale0.end-0.6s" dur="0.75s" values="3;.2;3" />
+    </circle>
+    <circle cx={20} cy={12} r={3} fill="currentColor">
+        <animate id="svgSpinners3DotsScale1" attributeName="r" begin="svgSpinners3DotsScale0.end-0.45s" dur="0.75s" values="3;.2;3" />
+    </circle>
+    </svg>
+  );
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-sans bg-[#212121e6] text-white old-paper-bg">
       <Analytics />
+      {notification && (
+          <Notification
+              message={notification.message}
+              type={notification.type}
+              onClose={() => setNotification(null)}
+          />
+      )}
       {/* Logo */}
       <header className="row-start-1 w-full flex justify-between items-center">
         <div className="flex justify-center items-center gap-2">
           <Image
             className=""
+            objectFit="contain"
             src="/vercel.svg"
             alt="PaperAI Logo"
             width={40}
@@ -191,7 +257,7 @@ export default function Home() {
           </div>
           <div className="lg:w-1/2 w-full">
             {/* Slider Component */}
-            <div className="relative w-full h-96 overflow-hidden">
+            <div className="relative w-full h-96 overflow-hidden p-6 rounded-lg shadow-lg">
               {slides.map((slide, index) => (
                 <div
                   key={index}
@@ -206,13 +272,13 @@ export default function Home() {
                     objectFit="contain"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-0 w-full bg-black bg-opacity-50 p-4 text-center">
+                  <div className="absolute top-0 w-full bg-[#2e2e2e] bg-opacity-100 p-4 text-center">
                     <h3 className="text-xl font-semibold">{slide.title}</h3>
                   </div> 
                 </div>
               ))}
               {/* Navigation Dots */}
-              <div className="absolute bottom-0 left-0 right-0 flex justify-center bg-black bg-opacity-50 p-4 space-x-2">
+              <div className="absolute bottom-0 left-0 right-0 flex justify-center bg-[#2e2e2e] bg-opacity-100 p-4 space-x-2">
                 {slides.map((_, idx) => (
                   <button
                     key={idx}
@@ -230,15 +296,19 @@ export default function Home() {
         {/* Waitlist Section */}
         <div className="mt-8 flex gap-4 items-start sm:items-center flex-col sm:flex-row">
           <input
+            disabled={loading}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Enter your email"
             className="rounded-md border border-solid border-[#ee5d19] dark:border-[#ee5d19] bg-transparent text-white h-10 sm:h-12 px-4 sm:px-5 text-sm sm:text-base w-80 sm:w-96 focus:outline-none focus:ring-2 focus:ring-[#ee5d19]"
           />
           <button
-            onClick={() => alert("You have been added to the waitlist!")}
+            disabled={loading}
+            onClick={handleGetUpdates}
             className="font-black rounded-md border border-solid border-transparent bg-[#ff6600] text-white transition-colors flex items-center justify-center hover:bg-[#ee5d19] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-44"
           >
-            Join the Waitlist
+            {loading ? loader() : 'Join the Waitlist'}
           </button>
         </div>
 
