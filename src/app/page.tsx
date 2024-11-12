@@ -137,16 +137,16 @@ export default function Home() {
 
   const testimonial = [
     {
+      type: "txt",
       text: "Paper AI has truly transformed the way I approach research. It simplifies literature reviews and makes it easy to collaborate in real time with my team, which is a huge plus. The smart voice assistant is a game-changer, letting me access and organize insights without missing a beat. Plus, being open-source, it’s accessible and adaptable to anyone’s needs. Overall, it’s become an essential tool for streamlining my research process and maximizing productivity.",
       name: "Mohamed Uvaze Ahamed Ayoobkhan",
       occupation: "Assistant Professor",
     },
     {
-      text: "PaperAI has revolutionized my research workflow.",
-      name: "Mohamed Uvaze Ahamed Ayoobkhan",
-      occupation: "Assistant Professor",
+      type: "img",
+      imageUrl: "/testimonials/user_love_1.png",
     },
-  ]
+  ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideInterval = 2000; // 2 seconds
@@ -232,7 +232,7 @@ export default function Home() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="rounded-md border border-solid border-[#ee5d19] dark:border-[#ee5d19] bg-transparent text-white h-10 sm:h-12 px-4 sm:px-5 text-sm sm:text-base w-64 sm:w-80 focus:outline-none focus:ring-2 focus:ring-[#ee5d19]"
+            className="rounded-md border border-solid border-[#ee5d19] dark:border-[#ee5d19] bg-transparent text-white h-10 sm:h-12 px-4 sm:px-5 text-sm sm:text-base w-80 sm:w-96 focus:outline-none focus:ring-2 focus:ring-[#ee5d19]"
           />
           <button
             onClick={() => alert("You have been added to the waitlist!")}
@@ -246,9 +246,9 @@ export default function Home() {
         {shorts.map((section, index) => (
           <div
             key={index}
-            className={`flex flex-col mt-16 ${
+            className={`flex flex-col mt-0 md:mt-16 ${
               section.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-            } items-center lg:items-start gap-8 my-8 w-full`}
+            } items-center lg:items-start gap-8 my-0 md:my-8 w-full`}
           >
             <div className="lg:w-2/3">
               {/* Video Placeholder */}
@@ -266,9 +266,8 @@ export default function Home() {
           </div>
         ))}
 
-        {/* Testimonials Section */}
         <div className="my-16 w-full">
-          <h2 className="text-3xl font-bold text-center mb-8">
+          <h2 className="text-3xl font-bold text-start md:text-center mb-8">
             PaperAI loves Researchers, umm... almost as much as Researchers love PaperAI!
           </h2>
           <div className="flex flex-col md:flex-row gap-8">
@@ -276,13 +275,25 @@ export default function Home() {
             {testimonial.map((item, index) => (
               <div
                 key={index}
-                className="bg-[#2e2e2e] p-6 rounded-lg shadow-lg flex-1 flex flex-col"
+                className="bg-[#2e2e2e] p-6 rounded-lg shadow-lg flex-1 flex flex-col items-start"
               >
-                <p className="text-lg mb-4 italic text-gray-200">
-                &quot;{item.text}&quot;
-                </p>
-                <p className="font-semibold">{item.name}</p>
-                <p className="text-sm text-gray-400">{item.occupation}</p>
+                {item.type === "txt" ? (
+                  <>
+                    <p className="text-lg mb-4 italic text-gray-200 text-start">
+                      &quot;{item.text}&quot;
+                    </p>
+                    <p className="font-semibold">{item.name}</p>
+                    <p className="text-sm text-gray-400">{item.occupation}</p>
+                  </>
+                ) : item.type === "img" ? (
+                  <Image
+                    src={item.imageUrl!}
+                    alt="User Love PaperAI"
+                    width={300}
+                    height={300}
+                    className="rounded-lg w-full"
+                  />
+                ) : null}
               </div>
             ))}
           </div>
@@ -290,7 +301,7 @@ export default function Home() {
 
         {/* Community Section */}
         <div className="my-16 w-full">
-          <h2 className="text-3xl font-bold text-center mb-8">
+          <h2 className="text-3xl font-bold text-start md:text-center mb-8">
           Made for a Vibrant Community! Join Us Today!
           </h2>
           <div className="flex flex-col md:flex-row gap-8">
