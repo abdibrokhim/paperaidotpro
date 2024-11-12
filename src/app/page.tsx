@@ -264,7 +264,7 @@ export default function Home() {
                 className="bg-[#2e2e2e] p-6 rounded-lg shadow-lg flex-1 flex flex-col"
               >
                 <p className="text-lg mb-4 flex-grow">
-                  "PaperAI has revolutionized my research workflow."
+                &quot;PaperAI has revolutionized my research workflow.&quot;
                 </p>
                 <p className="font-semibold">Researcher Name</p>
                 <p className="text-sm text-gray-400">Occupation</p>
@@ -308,7 +308,7 @@ export default function Home() {
             <div className="bg-[#2e2e2e] p-6 rounded-lg shadow-lg flex-1">
               <h3 className="text-xl font-bold mb-4">LinkedIn</h3>
               <p className="text-lg mb-4">
-                Follow us on LinkedIn for updates, insights, and more. Let's connect!
+                Follow us on LinkedIn for updates, insights, and more. Let&apos;s connect!
               </p>
               <a href="https://www.linkedin.com/company/opencommunity/" 
                 className="text-[#ee5d19] hover:underline"
