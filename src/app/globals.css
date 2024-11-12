@@ -11,7 +11,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #212121e6;
+    --background: rgba(33, 33, 33, 0.902);
     --foreground: #212121e6;
     --selection-bg: #ee5d19;
     --selection-color: #fff;
@@ -28,6 +28,15 @@ body {
   background-image: radial-gradient(var(--foreground) 1px, transparent 0);
   background-size: 1.875rem 1.875rem;
   background-position: center -0.9375rem;
+}
+
+.old-paper-bg {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.9)),
+    url('/styles/weathered-concrete-surface-wallpaper-background.jpg');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
 }
 
 .noselect {
