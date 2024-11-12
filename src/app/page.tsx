@@ -135,6 +135,19 @@ export default function Home() {
     },
   ];
 
+  const testimonial = [
+    {
+      text: "Paper AI has truly transformed the way I approach research. It simplifies literature reviews and makes it easy to collaborate in real time with my team, which is a huge plus. The smart voice assistant is a game-changer, letting me access and organize insights without missing a beat. Plus, being open-source, it’s accessible and adaptable to anyone’s needs. Overall, it’s become an essential tool for streamlining my research process and maximizing productivity.",
+      name: "Mohamed Uvaze Ahamed Ayoobkhan",
+      occupation: "Assistant Professor",
+    },
+    {
+      text: "PaperAI has revolutionized my research workflow.",
+      name: "Mohamed Uvaze Ahamed Ayoobkhan",
+      occupation: "Assistant Professor",
+    },
+  ]
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideInterval = 2000; // 2 seconds
 
@@ -237,17 +250,17 @@ export default function Home() {
               section.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
             } items-center lg:items-start gap-8 my-8 w-full`}
           >
-            <div className="lg:w-1/2">
+            <div className="lg:w-2/3">
               {/* Video Placeholder */}
-              <div className="w-full h-96 flex items-center justify-center">
-                <video className="w-full h-full" controls={section.controls} autoPlay={section.autoPlay} loop={true} muted={section.muted} >
+              <div className="w-full h-full flex items-center justify-center rounded-md border-2 border-[#ee5d19] p-2">
+                <video className="w-full h-full rounded-md" controls={section.controls} autoPlay={section.autoPlay} loop={true} muted={section.muted} >
                   <source src={section.videoUrl} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <h4 className="text-2xl font-semibold mb-4">{section.title}</h4>
+            <div className="lg:w-1/3 mt-4">
+              <h4 className="text-xl md:text-4xl font-bold mb-4 text-[#ee5d19]">{section.title}</h4>
               <p className="text-lg">{section.text}</p>
             </div>
           </div>
@@ -260,16 +273,16 @@ export default function Home() {
           </h2>
           <div className="flex flex-col md:flex-row gap-8">
             {/* Testimonial Cards */}
-            {[1, 2, 3, 4].map((item) => (
+            {testimonial.map((item, index) => (
               <div
-                key={item}
+                key={index}
                 className="bg-[#2e2e2e] p-6 rounded-lg shadow-lg flex-1 flex flex-col"
               >
-                <p className="text-lg mb-4 flex-grow">
-                &quot;PaperAI has revolutionized my research workflow.&quot;
+                <p className="text-lg mb-4 italic text-gray-200">
+                &quot;{item.text}&quot;
                 </p>
-                <p className="font-semibold">Researcher Name</p>
-                <p className="text-sm text-gray-400">Occupation</p>
+                <p className="font-semibold">{item.name}</p>
+                <p className="text-sm text-gray-400">{item.occupation}</p>
               </div>
             ))}
           </div>
@@ -342,7 +355,7 @@ export default function Home() {
         <div className="space-y-2">
           <p className="text-sm mb-4 font-bold">Community</p>
           <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e]"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e] hover:text-[#ee5d19]"
             href="https://x.com/abdibrokhim"
             target="_blank"
             rel="noopener noreferrer"
@@ -350,7 +363,7 @@ export default function Home() {
             X
           </a>
           <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e]"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e] hover:text-[#ee5d19]"
             href="https://www.linkedin.com/company/opencommunity/"
             target="_blank"
             rel="noopener noreferrer"
@@ -358,7 +371,7 @@ export default function Home() {
             LinkedIn
           </a>
           <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e]"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e] hover:text-[#ee5d19]"
             href="https://discord.gg/nVtmDUN2sR"
             target="_blank"
             rel="noopener noreferrer"
@@ -366,7 +379,7 @@ export default function Home() {
             Discord
           </a>
           <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e]"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e] hover:text-[#ee5d19]"
             href="https://github.com/abdibrokhim/paper-ai-voice-assistant"
             target="_blank"
             rel="noopener noreferrer"
