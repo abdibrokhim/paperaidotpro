@@ -3,6 +3,7 @@
 // src/app/pages.tsx
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
 
@@ -147,6 +148,7 @@ export default function Home() {
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-sans bg-[#212121e6] text-white">
+      <Analytics />
       {/* Logo */}
       <header className="row-start-1 w-full flex justify-between items-center">
         <div className="flex justify-center items-center gap-2">
