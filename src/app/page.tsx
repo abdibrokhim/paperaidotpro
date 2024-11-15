@@ -249,7 +249,7 @@ export default function Home() {
       <header className="row-start-1 w-full flex justify-between items-center">
         <div className="flex justify-center items-center gap-2">
           <Image
-            className="transform rotate-12 hover:rotate-0 transition-transform duration-500 ease-in-out"
+            className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
             objectFit="contain"
             src="/vercel.svg"
             alt="PaperAI Logo"
@@ -455,7 +455,7 @@ export default function Home() {
         <div className="flex flex-col gap-4">
           <div className="flex justify-start items-center gap-2 top-0 absolute">
             <Image
-              className="transform rotate-12 hover:rotate-0 transition-transform duration-500 ease-in-out"
+              className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
               src="/vercel.svg"
               alt="PaperAI Logo"
               width={40}
