@@ -146,18 +146,29 @@ export default function Home() {
 
   const testimonial = [
     {
-      type: "txt",
       text: "Paper AI has truly transformed the way I approach research. It simplifies literature reviews and makes it easy to collaborate in real time with my team, which is a huge plus. The smart voice assistant is a game-changer, letting me access and organize insights without missing a beat. Plus, being open-source, it’s accessible and adaptable to anyone’s needs. Overall, it’s become an essential tool for streamlining my research process and maximizing productivity.",
       name: "Mohamed Uvaze Ahamed Ayoobkhan",
       occupation: "Assistant Professor",
     },
+  ];
+
+  const screenshots = [
     {
-      type: "img",
+      title: "User Love",
       imageUrl: "/testimonials/user_love_1.png",
+    },
+    {
+      title: "User Love",
+      imageUrl: "/testimonials/user_love_2.png",
+    },
+    {
+      title: "User Love",
+      imageUrl: "/testimonials/user_love_3.png",
     },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlideScreenshot, setCurrentSlideScreenshot] = useState(0);
   const slideInterval = 2000; // 2 seconds
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -169,6 +180,13 @@ export default function Home() {
     }, slideInterval);
     return () => clearInterval(interval);
   }, [currentSlide, slides.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlideScreenshot((currentSlideScreenshot + 1) % screenshots.length);
+    }, slideInterval);
+    return () => clearInterval(interval);
+  }, [currentSlideScreenshot, screenshots.length]);
 
   function isValidEmail(email: string): boolean {
     if (!email) return false;
@@ -231,7 +249,7 @@ export default function Home() {
       <header className="row-start-1 w-full flex justify-between items-center">
         <div className="flex justify-center items-center gap-2">
           <Image
-            className=""
+            className="transform rotate-12 hover:rotate-0 transition-transform duration-500 ease-in-out"
             objectFit="contain"
             src="/vercel.svg"
             alt="PaperAI Logo"
@@ -338,7 +356,7 @@ export default function Home() {
 
         <div className="my-16 w-full">
           <h2 className="text-3xl font-bold text-start md:text-center mb-8">
-            PaperAI loves Researchers, umm... almost as much as Researchers love PaperAI!
+          <span className="font-black text-[#ee5d19]">PaperAI</span> loves Researchers, umm... almost as much as Researchers love <span className="font-black bg-[#ee5d19]">PaperAI</span>!
           </h2>
           <div className="flex flex-col md:flex-row gap-8">
             {/* Testimonial Cards */}
@@ -347,25 +365,40 @@ export default function Home() {
                 key={index}
                 className="bg-[#2e2e2e] p-6 rounded-lg shadow-lg flex-1 flex flex-col items-start"
               >
-                {item.type === "txt" ? (
-                  <>
-                    <p className="text-lg mb-4 italic text-gray-200 text-start">
-                      &quot;{item.text}&quot;
-                    </p>
-                    <p className="font-semibold">{item.name}</p>
-                    <p className="text-sm text-gray-400">{item.occupation}</p>
-                  </>
-                ) : item.type === "img" ? (
-                  <Image
-                    src={item.imageUrl!}
-                    alt="User Love PaperAI"
-                    width={300}
-                    height={300}
-                    className="rounded-lg w-full"
-                  />
-                ) : null}
+                <p className="text-lg mb-4 italic text-gray-200 text-start">
+                  &quot;{item.text}&quot;
+                </p>
+                <p className="font-semibold">{item.name}</p>
+                <p className="text-sm text-gray-400">{item.occupation}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="my-0 w-full">
+          <h2 className="text-3xl font-bold text-start md:text-center mb-8">
+            People Love <span className="font-black text-[#ee5d19]">PaperAI</span>! Here&apos;s what they have to say.
+          </h2>
+          <div className="w-full">
+            {/* Slider Component */}
+            <div className="relative w-full h-80 overflow-hidden p-6 rounded-lg">
+              {screenshots.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
+                    index === currentSlideScreenshot ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <Image
+                    src={slide.imageUrl}
+                    alt={slide.title}
+                    layout="fill"
+                    objectFit="contain"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -422,7 +455,7 @@ export default function Home() {
         <div className="flex flex-col gap-4">
           <div className="flex justify-start items-center gap-2 top-0 absolute">
             <Image
-              className=""
+              className="transform rotate-12 hover:rotate-0 transition-transform duration-500 ease-in-out"
               src="/vercel.svg"
               alt="PaperAI Logo"
               width={40}
