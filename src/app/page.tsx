@@ -439,7 +439,7 @@ export default function Home() {
               <p className="text-lg mb-4">
                 Follow us on LinkedIn for updates, insights, and more. Let&apos;s connect!
               </p>
-              <a href="https://www.linkedin.com/company/opencommunity/" 
+              <a href="https://www.linkedin.com/company/paperai/" 
                 className="text-[#ee5d19] hover:underline"
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -478,7 +478,7 @@ export default function Home() {
           </a>
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e] hover:text-[#ee5d19]"
-            href="https://www.linkedin.com/company/opencommunity/"
+            href="https://www.linkedin.com/company/paperai/"
             target="_blank"
             rel="noopener noreferrer"
           >
