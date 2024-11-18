@@ -53,8 +53,8 @@ export default function Home() {
 
   const shorts = [
     {
-      title: "Choose your mode",
-      text: "Select the mode that suits your research style, from Idle to Collaborative.",
+      title: "Choose Your Mode",
+      text: "Pick a research vibe! Whether you're flying solo in Idle Mode or jamming in Collaborative Mode, we've got the groove for every mood.",
       reverse: true,
       videoUrl: "/shorts/modes.mp4",
       muted: true,
@@ -62,8 +62,8 @@ export default function Home() {
       autoPlay: true,
     },
     {
-      title: "Deep dive into research in Idle mode",
-      text: "Experience an uninterrupted focus on your research with our Idle mode, tailored for individual exploration.",
+      title: "Idle Deep Dive Mode",
+      text: "Dive deep in Idle Mode — perfect for those zen moments when you want your thoughts uninterrupted and your focus unfazed.",
       reverse: false,
       videoUrl: "/shorts/idle.mp4",
       muted: true,
@@ -71,8 +71,8 @@ export default function Home() {
       autoPlay: true,
     },
     {
-      title: "Leave your notes in Private mode",
-      text: "Jot down your insights and thoughts privately, ensuring your initial ideas are captured securely.",
+      title: "Private Mode",
+      text: "Keep your cool ideas under wraps in Private Mode until they're ready to shine. It's your private think tank!",
       reverse: true,
       videoUrl: "/shorts/private.mp4",
       muted: true,
@@ -80,8 +80,8 @@ export default function Home() {
       autoPlay: true,
     },
     {
-      title: "Work together with peers in Collaborative mode",
-      text: "Collaborate seamlessly with your peers, sharing insights and building upon each other's work.",
+      title: "Collaborative Mode",
+      text: "Better together! Sync up with peers, share sparks of genius, and co-create breakthroughs in real-time.",
       reverse: false,
       videoUrl: "/shorts/collab.mp4",
       muted: true,
@@ -89,8 +89,8 @@ export default function Home() {
       autoPlay: true,
     },
     {
-      title: "Highlight to Leave comments",
-      text: "Engage in discussions directly within the text by highlighting and commenting on specific sections.",
+      title: "Interactive Annotations",
+      text: "Highlight, scribble, and engage right on the text. It's like having a chat with the margins!",
       reverse: true,
       videoUrl: "/shorts/comment.mp4",
       muted: true,
@@ -98,35 +98,35 @@ export default function Home() {
       autoPlay: true,
     },
     {
-      title: "... and Reply",
-      text: "Engage in discussions directly within the text by highlighting and commenting on specific sections.",
-      reverse: true,
+      title: "Dynamic Discussions",
+      text: "Keep the convo going! Our threaded replies make sure no idea gets left behind.",
+      reverse: false,
       videoUrl: "/shorts/reply.mp4",
       muted: true,
       controls: false,
       autoPlay: true,
     },
     {
-      title: "Add new paper with ease",
-      text: "Easily upload and integrate new papers into your research library with minimal effort.",
-      reverse: false,
+      title: "Seamless Paper Integration",
+      text: "Adding new research to your stash is a breeze. Drag, drop, and done!",
+      reverse: true,
       videoUrl: "/shorts/url.mp4",
       muted: true,
       controls: false,
       autoPlay: true,
     },
     {
-      title: "Advanced AI Voice Assistant to help you with your research",
-      text: "Leverage our AI Voice Assistant for hands-free assistance and insights while you work.",
-      reverse: true,
+      title: "Advanced AI Voice Assistant",
+      text: "Talk nerdy to me! Our AI Voice Assistant is here to chat up your research questions and fetch insights on command.",
+      reverse: false,
       videoUrl: "/shorts/ai_voice_ass1.mp4",
       muted: false,
       controls: true,
       autoPlay: false,
     },
     {
-      title: "Advanced AI Voice Assistant to help you with your research",
-      text: "Leverage our AI Voice Assistant for hands-free assistance and insights while you work.",
+      title: "Advanced AI Voice Assistant",
+      text: "Talk nerdy to me! Our AI Voice Assistant is here to chat up your research questions and fetch insights on command.",
       reverse: true,
       videoUrl: "/shorts/ai_voice_ass2.mp4",
       muted: false,
@@ -134,8 +134,8 @@ export default function Home() {
       autoPlay: false,
     },
     {
-      title: "Citation made easy with PaperAI",
-      text: "Generate citations effortlessly, ensuring your references are accurate and properly formatted.",
+      title: "Effortless Citation Tool",
+      text: "Cite it right, make it tight! Auto-magically generate citations that are spot-on and stress-free.",
       reverse: false,
       videoUrl: "/shorts/citation.mp4",
       muted: true,
@@ -247,17 +247,19 @@ export default function Home() {
       )}
       {/* Logo */}
       <header className="row-start-1 w-full flex justify-between items-center">
-        <div className="flex justify-center items-center gap-2">
-          <Image
-            className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
-            objectFit="contain"
-            src="/vercel.svg"
-            alt="PaperAI Logo"
-            width={40}
-            height={40}
-            priority
-            />
-          <p className="text-2xl font-bold">PaperAI</p>
+        <div className="">
+          <a className="flex justify-center items-center gap-2" href="/" rel="noopener noreferrer">
+            <Image
+              className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
+              objectFit="contain"
+              src="/vercel.svg"
+              alt="PaperAI Logo"
+              width={40}
+              height={40}
+              priority
+              />
+            <p className="text-2xl font-bold">PaperAI</p>
+          </a>
         </div>
       </header>
 
@@ -269,8 +271,7 @@ export default function Home() {
               PaperAI: The Open Source Collaborative AI Research Platform
             </h1>
             <p className="text-lg">
-              PaperAI is a platform that revolutionizes the way researchers collaborate and dive into
-              academic papers. Join us in redefining research workflows.
+              Dive deep into the future of research with PaperAI. Our platform redefines collaborative exploration of academic papers. Join us in this revolution!
             </p>
           </div>
           <div className="lg:w-1/2 w-full">
@@ -453,16 +454,18 @@ export default function Home() {
 
       <footer className="relative row-start-3 flex gap-6 flex-row items-end justify-between w-full">
         <div className="flex flex-col gap-4">
-          <div className="flex justify-start items-center gap-2 top-0 absolute">
-            <Image
-              className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
-              src="/vercel.svg"
-              alt="PaperAI Logo"
-              width={40}
-              height={40}
-              priority
-              />
-            <p className="text-2xl font-bold">PaperAI</p>
+          <div className="top-0 absolute">
+            <a className="flex justify-start items-center gap-2" href="/" rel="noopener noreferrer">
+              <Image
+                className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
+                src="/vercel.svg"
+                alt="PaperAI Logo"
+                width={40}
+                height={40}
+                priority
+                />
+              <p className="text-2xl font-bold">PaperAI</p>
+            </a>
           </div>
           <p className="text-xs text-[#9e9e9e]">© 2024 PaperAI - All Rights Reserved</p>
         </div>
