@@ -248,7 +248,7 @@ export default function Home() {
       {/* Logo */}
       <header className="row-start-1 w-full flex justify-between items-center">
         <div className="">
-          <a className="flex justify-center items-center gap-2" href="/" rel="noopener noreferrer">
+          <a className="flex justify-center items-center gap-2" href="https://www.paperai.pro/" rel="noopener noreferrer">
             <Image
               className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
               objectFit="contain"
@@ -455,7 +455,7 @@ export default function Home() {
       <footer className="relative row-start-3 flex gap-6 flex-row items-end justify-between w-full">
         <div className="flex flex-col gap-4">
           <div className="top-0 absolute">
-            <a className="flex justify-start items-center gap-2" href="/" rel="noopener noreferrer">
+            <a className="flex justify-start items-center gap-2" href="https://www.paperai.pro/" rel="noopener noreferrer">
               <Image
                 className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
                 src="/vercel.svg"
