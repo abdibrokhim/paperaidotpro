@@ -267,7 +267,22 @@ export default function Home() {
         {/* Main Section */}
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 w-full">
           <div className="lg:w-1/2 w-full">
-            <h1 className="text-4xl font-bold mb-4">
+            <div className="flex flex-row gap-2 items-center">
+              <Image
+                  src="/oc-logo.png"
+                  width={32}
+                  height={32}
+                  alt="Open Community Logo"
+                  objectFit="contain"
+                  className="w-[32px] h-[32px] object-cover rounded-md"
+                />
+                <a href="https://linkedin.com/company/opencommunity" rel="noopener noreferrer" target="_blank"
+                  className="flex flex-row gap-2 items-center">
+                  <p className="text-xs text-[#aeaeae] font-bold hover:text-[#9e9e9e]">BACKED BY OPEN COMMUNITY</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#aeaeae" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right h-3 w-3 hover:text-[#9e9e9e]"><path d="m9 18 6-6-6-6"></path></svg>
+                </a>
+            </div>
+            <h1 className="text-4xl font-bold mb-4 mt-4">
               PaperAI: The Open Source Collaborative AI Research Platform
             </h1>
             <p className="text-lg">
@@ -473,7 +488,7 @@ export default function Home() {
           <p className="text-sm mb-4 font-bold">Community</p>
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-xs text-[#9e9e9e] hover:text-[#ee5d19]"
-            href="https://x.com/abdibrokhim"
+            href="https://x.com/xopencommunity"
             target="_blank"
             rel="noopener noreferrer"
           >
