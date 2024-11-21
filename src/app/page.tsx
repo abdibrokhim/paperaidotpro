@@ -125,8 +125,8 @@ export default function Home() {
       autoPlay: false,
     },
     {
-      title: "Advanced AI Voice Assistant",
-      text: "Talk nerdy to me! Our AI Voice Assistant is here to chat up your research questions and fetch insights on command.",
+      title: "AI Chime-In",
+      text: "Never miss a beat! Our AI Voice Assistant keeps you in the loop with real-time chimes whenever there’s buzz in your collaborative sessions.",
       reverse: true,
       videoUrl: "/shorts/ai_voice_ass2.mp4",
       muted: false,
