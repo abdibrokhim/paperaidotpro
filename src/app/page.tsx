@@ -250,12 +250,12 @@ export default function Home() {
         <div className="">
           <a className="flex justify-center items-center gap-2" href="https://www.paperai.pro/" rel="noopener noreferrer">
             <Image
-              className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
+              className=""
               objectFit="contain"
-              src="/vercel.svg"
+              src="/paperai.svg"
               alt="PaperAI Logo"
-              width={40}
-              height={40}
+              width={28}
+              height={28}
               priority
               />
             <p className="text-2xl font-bold">PaperAI</p>
@@ -472,11 +472,11 @@ export default function Home() {
           <div className="top-0 absolute">
             <a className="flex justify-start items-center gap-2" href="https://www.paperai.pro/" rel="noopener noreferrer">
               <Image
-                className="transform rotate-12 hover:rotate-180 transition-transform duration-500 ease-in-out"
-                src="/vercel.svg"
+                className=""
+                src="/paperai.svg"
                 alt="PaperAI Logo"
-                width={40}
-                height={40}
+                width={28}
+                height={28}
                 priority
                 />
               <p className="text-2xl font-bold">PaperAI</p>
